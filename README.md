@@ -13,6 +13,6 @@ react-router-dom이 버전 6로 업그레이드되면서, Switch를 더이상 �
 4. React js Warning: ReactDOM.render is no longer supported in React 18. Use createRoot instead. Until you switch to the new API
 import ReactDOM from 'react-dom/client';
 
-5. <Route> component. All component children of <Routes> must be a <Route> or <React.Fragment>
-<Routes> 자식으로는 <Route>만 가능
-<Route path="/" element={<Auth />} /> 처럼 코드 수정
+5. `<Route>` component. All component children of `<Routes>` must be a `<Route>` or `<React.Fragment>`
+`<Routes>` 자식으로는 `<Route>`만 가능
+`<Route path="/" element={<Auth />} />` 처럼 코드 수정
