@@ -9,13 +9,9 @@ const AppRouter = () => {
     <Router>
       <Routes>
         {isLoggedIn ? (
-          <Route exact path="/">
-            <Home />
-          </Route>
+          <Route path="/" element={<Home />} />
         ) : (
-          <Route exact path="/">
-            <Auth />
-          </Route>
+          <Route path="/" element={<Auth />} />
         )}
       </Routes>
     </Router>    // eslint-disable-line no-unused-vars
