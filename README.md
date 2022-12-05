@@ -16,3 +16,9 @@ import ReactDOM from 'react-dom/client';
 5. `<Route>` component. All component children of `<Routes>` must be a `<Route>` or `<React.Fragment>`
 `<Routes>` 자식으로는 `<Route>`만 가능
 `<Route path="/" element={<Auth />} />` 처럼 코드 수정
+
+6. idealTree:workbox-webpack-plugin: timing idealTree:node_modules/workbox-webpack-plugin Completed in 1239ms
+package.lock.json 파일 삭제
+yarn.lock 파일 삭제
+yarn install
+yarn start 정상 작동
