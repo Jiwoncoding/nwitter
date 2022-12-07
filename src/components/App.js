@@ -4,8 +4,8 @@ import { authService } from "fbase";
 
 
 function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // eslint-disable-line no-unused-vars
-  console.log(authService.currentUser);
+  const [isLoggedIn, setIsLoggedIn] = useState(authService.currentUser); // eslint-disable-line no-unused-vars
+  // console.log(authService.currentUser);
   return (
     <>
     <AppRouter isLoggedIn={isLoggedIn} />
