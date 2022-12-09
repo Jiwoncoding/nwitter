@@ -5,6 +5,7 @@ const Auth = () => {
   const [email, setEmail] = useState(""); 
   const [password, setPassword] = useState(""); 
   const [newAccount, setNewAccount] = useState(true); // eslint-disable-line no-unused-vars
+  const [error, setError] = useState(""); // eslint-disable-line no-unused-vars
 
   const onChange = (event) => {
    const {
@@ -30,7 +31,8 @@ const Auth = () => {
     }
     console.log(data);
   } catch(error){
-    console.log(error);
+    // console.log(error);
+    setError(error.message);
   }
   };
 
@@ -40,6 +42,7 @@ const Auth = () => {
         <input name="email" type="email" placeholder="Email" required value={email} onChange={onChange} />
         <input name="password" type="password" placeholder="Password" required value={password} onChange={onChange} />
         <input type="submit" value={newAccount ? "Create Account" : "Log In"} />
+        {error}
       </form>
       <div>
         <button>Continue with Google</button>
