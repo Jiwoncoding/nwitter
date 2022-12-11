@@ -24,12 +24,12 @@ yarn install
 yarn start 정상 작동
 
 7. React: 'Redirect' is not exported from 'react-router-dom'
-import { Navigate } from 'react-router-dom';
+`import { Navigate } from 'react-router-dom';`
 ...
-{ component: () => <Navigate to="/404" /> }
+`{ component: () => <Navigate to="/404" /> }`
 
 8. 'usehistory' is not exported from 'react-router-dom'
 Profile.js 파일 참고
-import { useNavigate } from 'react-router-dom';
-const navigate = useNavigate();
-navigate('/home')
+`import { useNavigate } from 'react-router-dom';`
+`const navigate = useNavigate();`
+`navigate('/home');`
