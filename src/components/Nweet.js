@@ -1,8 +1,15 @@
+import { dbService } from "fbase";
+
 const Nweet = ({ nweetObj, isOwner }) => {
-  const onDeleteClick = () => {
+  const onDeleteClick = async () => {
     const ok = window.confirm("삭제?");
     console.log(ok);
-  }
+    if(ok){
+      console.log(nweetObj.id);
+      const data = await dbService.doc(`nweets/${nweetObj.id}`).delete();
+      console.log(data);
+    }
+  };
 
   return (
     <div>
