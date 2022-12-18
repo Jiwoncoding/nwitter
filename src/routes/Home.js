@@ -31,6 +31,8 @@ const Home = ({userObj}) => {
 
   const onSubmit = async(event) => {
     event.preventDefault();
+    let attachmentUrl = "";
+    if(attachment !== ""){
     // await dbService.collection("nweets").add({
     //   text: nweet,
     //   createdAt: Date.now(),
@@ -41,7 +43,8 @@ const Home = ({userObj}) => {
       .ref()
       .child(`${userObj.uid}/${uuidv4()}`);
     const response = await attachmentRef.putString(attachment, "data_url");
-    const attachmentUrl = await response.ref.getDownloadURL();
+    attachmentUrl = await response.ref.getDownloadURL();
+    }
     await dbService.collection("nweets").add({
       text: nweet,
       createdAt: Date.now(),

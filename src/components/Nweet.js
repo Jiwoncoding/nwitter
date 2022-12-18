@@ -1,17 +1,19 @@
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import { useState } from "react";
 
 const Nweet = ({ nweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false); // eslint-disable-line no-unused-vars
-  const [newNweet, setNewNweet] = useState(nweetObj.text); // eslint-disable-line no-unused-vars
+  const [newNweet, setNewNweet] = useState(nweetObj.text); 
 
   const onDeleteClick = async () => {
     const ok = window.confirm("삭제?");
-    console.log(ok);
+    // console.log(ok);
     if(ok){
-      console.log(nweetObj.id);
-      const data = await dbService.doc(`nweets/${nweetObj.id}`).delete();
-      console.log(data);
+      // console.log(nweetObj.id);
+      await dbService.doc(`nweets/${nweetObj.id}`).delete();
+      // console.log(data);
+      if(nweetObj.attachmentUrl !== "")
+        await storageService.refFromURL(nweetObj.attachmentUrl).delete();
     }
   };
 
