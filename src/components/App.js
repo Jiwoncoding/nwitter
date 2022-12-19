@@ -8,6 +8,12 @@ function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // eslint-disable-line no-unused-vars
   const [userObj, setUserObj] = useState(null);
   // console.log(authService.currentUser);
+  const refreshUser = () =>{
+    setUserObj(authService.currentUser);
+  };
+
+
+
   useEffect(()=>{
     authService.onAuthStateChanged((user)=>{
       if(user){
@@ -22,7 +28,7 @@ function App() {
   return (
     <>
     {init ? (
-    <AppRouter isLoggedIn={isLoggedIn} userObj={userObj} /> 
+    <AppRouter refreshUser={refreshUser} isLoggedIn={isLoggedIn} userObj={userObj} /> 
     ) : (
       "initializing..."
     )}
