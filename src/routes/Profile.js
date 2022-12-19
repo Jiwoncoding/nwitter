@@ -3,7 +3,7 @@ import { authService, dbService } from "../fbase"; // eslint-disable-line no-unu
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react"; // eslint-disable-line no-unused-vars
 
-const Profile = ({userObj},refreshUser) => { // eslint-disable-line no-unused-vars
+const Profile = ({userObj,refreshUser}) => { // eslint-disable-line no-unused-vars
 
   // const history = useHistory();
   const navigate = useNavigate();
@@ -23,8 +23,12 @@ const Profile = ({userObj},refreshUser) => { // eslint-disable-line no-unused-va
     navigate('/');
   };
 
-  const onSubmit = (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
+    if(userObj.displayName !== newDisplayName){
+      await userObj.updateProfile({displayName: newDisplayName});
+      refreshUser();
+    }
   };
 
 
