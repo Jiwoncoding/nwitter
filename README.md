@@ -36,3 +36,5 @@ Profile.js 파일 참고
 
 9. img elements must have an alt prop, either with meaningful text, or an empty string for decorative images jsx-a11y/alt-text
 웹 표준에 따라 img 태그는 alt를 작성
+
+10.
